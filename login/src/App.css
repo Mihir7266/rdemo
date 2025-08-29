@@ -1,38 +1,102 @@
-.App {
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.auth-container {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+  width: 380px;
+  color: #fff;
   text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.auth-header {
+  margin-bottom: 20px;
+}
+.auth-header h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.auth-header p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #dcdcdc;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.auth-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.auth-form input {
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+.auth-form input:focus {
+  border: 2px solid #00c6ff;
+}
+
+
+button {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
   color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: transform 0.2s, background 0.3s;
+}
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
 }
 
-.App-link {
-  color: #61dafb;
+
+.auth-link {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #f0f0f0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.auth-link:hover {
+  color: #00c6ff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.dashboard {
+  color: #fff;
+  text-align: center;
+}
+.dashboard h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
