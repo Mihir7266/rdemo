@@ -8,7 +8,13 @@ function Register({ setPage, formData, setFormData, handleRegister }) {
         <p>Join us today and get started!</p>
       </div>
 
-      <form className="auth-form" onSubmit={(e) => { e.preventDefault(); handleRegister(); }}>
+      <form
+        className="auth-form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleRegister();
+        }}
+      >
         <input
           type="text"
           placeholder="Full Name"
@@ -16,6 +22,7 @@ function Register({ setPage, formData, setFormData, handleRegister }) {
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           required
         />
+
         <input
           type="email"
           placeholder="Email"
@@ -23,6 +30,16 @@ function Register({ setPage, formData, setFormData, handleRegister }) {
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           required
         />
+
+        {/* ✅ Mobile Number box */}
+        <input
+          type="tel"
+          placeholder="Mobile Number"
+          value={formData.mobile}
+          onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+          required
+        />
+
         <input
           type="password"
           placeholder="Password"
@@ -30,6 +47,7 @@ function Register({ setPage, formData, setFormData, handleRegister }) {
           onChange={(e) => setFormData({ ...formData, password: e.target.value })}
           required
         />
+
         <button type="submit">Register</button>
       </form>
 
