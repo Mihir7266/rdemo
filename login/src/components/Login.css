@@ -53,3 +53,10 @@
   color: #4facfe;
   font-weight: bold;
 }
+.error-input {
+  border: 2px solid red;
+}
+.error-input {
+  border: 2px solid red !important;
+  outline: none;
+}

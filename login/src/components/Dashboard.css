@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 100vw;       
   background: #f5f7fa;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -17,6 +18,7 @@
   padding: 15px 30px;
 }
 
+/* Topbar Right Section */
 .topbar-right {
   display: flex;
   align-items: center;
@@ -31,6 +33,7 @@
   color: white;
   cursor: pointer;
 }
+
 .logout-btn:hover {
   background: #c0392b;
 }
@@ -90,35 +93,4 @@
 
 .social-buttons a:nth-child(3):hover {
   background: #128c7e;
-}
-.social-buttons a {
-  text-decoration: none;
-  padding: 12px 20px;
-  background: #34495e;
-  color: white;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: 0.2s;
-}
-
-.social-buttons a:hover {
-  background: #1abc9c;
-}
-
-/* WhatsApp button green */
-.social-buttons a:nth-child(3) {
-  background: #25d366;
-}
-
-.social-buttons a:nth-child(3):hover {
-  background: #128c7e;
-}
-
-/* Email button orange */
-.social-buttons a:nth-child(4) {
-  background: #e67e22;
-}
-
-.social-buttons a:nth-child(4):hover {
-  background: #d35400;
 }

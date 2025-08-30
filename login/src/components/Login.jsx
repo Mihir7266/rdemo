@@ -1,7 +1,33 @@
-import React from "react";
-import "./Login.css"
+import React, { useState } from "react";
+import "./Login.css";
 
 function Login({ setPage, handleLogin, formData, setFormData }) {
+  const [errors, setErrors] = useState({ email: false, password: false });
+
+  // Validate a single field while typing
+  const validateField = (name, value) => {
+    setErrors((prev) => ({
+      ...prev,
+      [name]: value.trim() === "", // true = error
+    }));
+  };
+
+  // Validate on login button click
+  const validateAndLogin = (e) => {
+    e.preventDefault();
+
+    const newErrors = {
+      email: formData.email.trim() === "",
+      password: formData.password.trim() === "",
+    };
+
+    setErrors(newErrors); // <-- force update
+
+    if (!newErrors.email && !newErrors.password) {
+      handleLogin();
+    }
+  };
+
   return (
     <div className="auth-container">
       <div className="auth-header">
@@ -9,21 +35,31 @@ function Login({ setPage, handleLogin, formData, setFormData }) {
         <p>Welcome back! Please log in</p>
       </div>
 
-      <form className="auth-form" onSubmit={(e) => { e.preventDefault(); handleLogin(); }}>
+      <form className="auth-form" onSubmit={validateAndLogin}>
         <input
           type="email"
           placeholder="Email"
           value={formData.email}
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          required
+          onChange={(e) => {
+            const value = e.target.value;
+            setFormData({ ...formData, email: value });
+            validateField("email", value);
+          }}
+          className={errors.email ? "error-input" : ""}
         />
+
         <input
           type="password"
           placeholder="Password"
           value={formData.password}
-          onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-          required
+          onChange={(e) => {
+            const value = e.target.value;
+            setFormData({ ...formData, password: value });
+            validateField("password", value);
+          }}
+          className={errors.password ? "error-input" : ""}
         />
+
         <button type="submit">Login</button>
       </form>
 
